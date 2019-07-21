@@ -1,0 +1,24 @@
+'''
+题目描述
+输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
+'''
+# -*- coding:utf-8 -*-
+class Solution:
+    def Permutation(self, ss):
+        # write code here
+        if not ss:
+            return []
+          
+        if len(ss)==1:
+            return [ss]
+          
+        else:
+            result=[]
+            a=ss[-1]
+            for ii in self.Permutation(ss[:-1]):
+                for j in range(len(ii)+1):
+                    result.append(ii[:j]+a+ii[j:])
+            result=list(set(result))
+            result.sort()
+            return result
+                
