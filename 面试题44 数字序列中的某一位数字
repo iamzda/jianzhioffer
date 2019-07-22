@@ -1,0 +1,10 @@
+'''
+
+'''
+class Solution:
+    def digitAtIndex(self,index):
+        if index < 0 :
+            return -1
+        xx = [i for i in range(index+1)]
+        ss = ''.join(map(str,xx))
+        print(ss[index])
