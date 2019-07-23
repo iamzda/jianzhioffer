@@ -1,0 +1,30 @@
+'''
+
+'''
+class Solution:
+    def GetTranslationCount(self,number):
+        if number < 0:
+            return 0
+        numberInString = str(number)
+        return self.GetTranslation_Count(numberInString)
+
+    def GetTranslation_Count(self,number):
+        count = 0
+        counts = [None] * len(number)
+        for i in range(len(number)-1,-1,-1):
+            count = 0
+            if i < len(number) -1:
+                count += counts[i+1]
+            else:
+                count =1
+            if i < len(number) -1:
+                digit1 = int(number[i])
+                digit2 = int(number[i+1])
+                converted = digit1*10 + digit2
+                if converted >= 10 and converted <= 25:
+                    if i < len(number) - 2:
+                        count+=counts[i+2]
+                    else:
+                        count+=1
+            counts[i] = count
+        return counts[0]
