@@ -15,4 +15,4 @@ class Solution:
                 if j >0:
                     left = maxValues[i][j-1]
                 maxValues[i][j] = max(up,left) + values[i][j]
-        return maxValues[i-1][j-1]
+        return maxValues[cols-1][rows-1]
